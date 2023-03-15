@@ -1,0 +1,27 @@
+
+
+body {
+  background-color: #F7F7E3;
+  color: #15242D;
+  font-family: 'Source Serif Pro', serif;
+}
+
+.btn.btn-primary {
+  background-color: #7EC0B2;
+}
+
+.fade-in-text span {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/*.fade-in-text span:nth-of-type(2){
+  animation-delay: 0.5s;
+}*/
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
