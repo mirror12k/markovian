@@ -28,7 +28,7 @@ const Home = () => {
 		// make_markov_chain(await get_munged_page_text(pages[2]), chain);
 		// make_markov_chain(await get_munged_page_text(pages[3]), chain);
 		// make_markov_chain(await get_munged_page_text(pages[4]), chain);
-		console.log(chainref.current);
+		// console.log(chainref.current);
 
 		setloading(false);
 		var text = [1,].map(i => generate_sentence(chainref.current)).join(' ');
@@ -37,11 +37,11 @@ const Home = () => {
 
 	const content_words = content?.split(' ');
 
-	return (loading ? <div><h1>Loading...</h1></div> :
+	return (loading ? <div><h1>Dreaming...</h1></div> :
 		<div>
 			{/*<ThemeSwitch />*/}
 			{content
-				? <div className="m-4 p-4">
+				? <div className="p-4">
 					<h2 className="fade-in-text text-justify">{content_words.map((t, i) => <span key={t + i} style={{animationDelay: '' +(i / 10)+'s'}}>{t} </span>)}</h2>
 					<div className="text-center">
 						<button className="btn btn-primary fade-in-button" onClick={loadcontent} style={{animationDelay: '' +(content_words.length / 10)+'s'}}>

@@ -32,7 +32,7 @@ export const get_munged_page_text = page => query_page(page).then(s => munge_tex
 
 export const glue_context_words = w => { var g = []; var chain = ''; w.forEach(s => { if (s.match(/^(an?|as|at|by|but|the|which|from|that|of|would|could|can|was|is|on|in|for|are|and|to|has|to)$/i)) chain += s + ' '; else { g.push(chain + s); chain = ''; } }); return g }
 export const load_markov_chain = (t, v) => glue_context_words(v.split(' ').filter(s => s !== '')).reduce((p, s) => { p in t ? t[p].push(s) : t[p] = [ s ]; return s }, '')
-export const make_markov_chain = (l, t) => { t = t || {}; load_markov_chain(t, l); console.log(l, t); return t }
+export const make_markov_chain = (l, t) => { t = t || {}; load_markov_chain(t, l); return t }
 // export const make_markov_chain = (l, t) => { t = t || {}; l.forEach(s => load_markov_chain(t, s)); return t }
 export const loop_while = (v, f) => { var l = [v]; while (v = f(v)) l.push(v); return l }
 export const generate_sentence = t => loop_while(t[''].random(), v => { return t[v]?.random() } ).join(' ').replace(/&nbsp;/g, ' ')
